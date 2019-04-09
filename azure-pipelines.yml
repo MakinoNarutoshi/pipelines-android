@@ -21,6 +21,11 @@ steps:
     contents: '**/*.apk'
     targetFolder: '$(build.artifactStagingDirectory)'
 
+- task: CopyFilesTestResult@2
+  inputs:
+    contents: '**/TEST-*.xml'
+    targetFolder: '$(build.artifactStagingDirectory)/test'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(build.artifactStagingDirectory)'
